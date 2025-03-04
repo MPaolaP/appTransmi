@@ -1,0 +1,166 @@
+body {
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 390px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #ff5b35 0%, #c4151c 100%);
+  color: white;
+  border-bottom: 3px solid #ffcc00;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: bold;
+  flex-grow: 1;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+.user-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.user-icon::before {
+  content: "👤";
+  font-size: 22px;
+}
+
+.welcome-banner {
+  background-color: #f0f4f8;
+  padding: 15px 20px;
+  border-radius: 0 0 15px 15px;
+  margin-bottom: 20px;
+}
+
+.welcome-text {
+  font-size: 15px;
+  color: #444;
+  margin: 0;
+}
+
+.welcome-name {
+  font-weight: bold;
+  color: #c4151c;
+}
+
+.menu-items {
+  padding: 0 15px 30px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.menu-item {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.menu-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.menu-text {
+  flex: 1;
+  padding: 20px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.menu-text::after {
+  content: "›";
+  position: absolute;
+  right: 15px;
+  color: #c4151c;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.menu-description {
+  font-size: 13px;
+  color: #666;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+.menu-icon {
+  min-width: 120px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+.menu-icon {
+  background: #ffffff;
+}
+
+
+.icon-img {
+  max-width: 140px;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10%;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0px 15px 15px 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #eee;
+}
+.back-button {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #c00d0d;
+}

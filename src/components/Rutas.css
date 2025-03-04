@@ -1,0 +1,544 @@
+body {
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+}
+
+.app-container {
+    max-width: 390px;
+    min-height: 100vh;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #ff5b35 0%, #c4151c 100%);
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.back-button {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.header-title {
+    font-size: 18px;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.info-button {
+    font-size: 20px;
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.search-section {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    background-color: #f9f9f9;
+}
+
+.search-label {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #666;
+    font-weight: 500;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+}
+
+.search-icon {
+    color: #c4151c;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.search-text-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+    width: 100%;
+}
+
+.search-button {
+    background-color: #c4151c;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: background-color 0.2s;
+    width: 100%;
+}
+
+.search-button:hover {
+    background-color: #a01016;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid #eee;
+    background: white;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 15px 5px;
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.tab.active {
+    color: #c4151c;
+    font-weight: 600;
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 20%;
+    width: 60%;
+    height: 3px;
+    background-color: #c4151c;
+    border-radius: 3px 3px 0 0;
+}
+
+.estimated-time {
+    background-color: #fff8e1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 15px 20px;
+    border-left: 3px solid #ffc107;
+}
+
+.estimated-text {
+    font-size: 13px;
+    color: #755600;
+}
+
+.estimated-bold {
+    font-weight: bold;
+}
+
+/* Contenedor de la lista de rutas con scroll */
+.route-list-container {
+    background-color: white;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 250px; /* Altura máxima para el contenedor de rutas */
+    scrollbar-width: thin;
+    scrollbar-color: #c4151c #f0f0f0;
+    padding-bottom: 5px;
+}
+
+.route-list-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.route-list-container::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+.route-list-container::-webkit-scrollbar-thumb {
+    background-color: #c4151c;
+    border-radius: 6px;
+}
+
+.routes-scroll {
+    width: 100%;
+}
+
+.load-more-indicator {
+    text-align: center;
+    padding: 15px;
+    color: #888;
+    font-size: 12px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.9) 30%, white);
+    position: relative;
+    margin-top: -10px;
+}
+
+.loading, .no-results {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+/* Estilos para la lista de rutas */
+.route-item {
+    display: flex;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.route-item:hover {
+    background-color: #f9f9f9;
+}
+
+.route-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.route-name {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.route-status {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 6px;
+    box-shadow: 0 0 3px rgba(0,0,0,0.1);
+}
+
+.status-dot.active {
+    background-color: #4caf50;
+}
+
+.status-dot.delay {
+    background-color: #ff9800;
+}
+
+.view-more {
+    text-align: center;
+    padding: 15px;
+    color: #c4151c;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.view-more:hover {
+    background-color: #f9f9f9;
+}
+
+.view-more-arrow {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+/* Zonas */
+.zones-section {
+    padding: 15px 20px;
+    background-color: white;
+    border-top: 5px solid #f7f7f7;
+}
+
+.zones-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.zones-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.chevron-down {
+    color: #999;
+    font-size: 12px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+}
+
+.zones-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 320px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #c4151c #f0f0f0;
+}
+
+.zones-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.zones-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+.zones-list::-webkit-scrollbar-thumb {
+    background-color: #c4151c;
+    border-radius: 4px;
+}
+
+.zone-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.zone-item:hover {
+    background-color: #f9f9f9;
+}
+
+.zone-left {
+    display: flex;
+    align-items: center;
+}
+
+.zone-color {
+    width: 5px;
+    height: 24px;
+    margin-right: 12px;
+    border-radius: 3px;
+}
+
+.zone-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+.zone-arrow {
+    color: #c4151c;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Ayuda */
+.help-center {
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    color: #666;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: sticky;
+    bottom: 0;
+}
+
+.help-center:hover {
+    background-color: #f0f0f0;
+}
+
+.help-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: #555;
+}
+
+/* Contenedor de contenido */
+.content-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 10px;
+}
+
+
+.station-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px;
+    border-left: 4px solid #c4151c;
+}
+
+.station-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.station-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.station-location, .station-zone, .station-status {
+    font-size: 14px;
+    color: #666;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: #555;
+}
+
+/* Actualiza el contenedor de estaciones con scroll */
+.stations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+    max-height: 250px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #c4151c #f0f0f0;
+}
+
+.stations-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.stations-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+.stations-list::-webkit-scrollbar-thumb {
+    background-color: #c4151c;
+    border-radius: 6px;
+}
+
+/* Actualiza el contenedor de horarios con scroll */
+.schedules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 20px;
+    max-height: 250px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #1e88e5 #f0f0f0;
+}
+
+.schedules-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.schedules-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+.schedules-list::-webkit-scrollbar-thumb {
+    background-color: #1e88e5;
+    border-radius: 6px;
+}
+
+.schedule-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px;
+    border-left: 4px solid #1e88e5;
+}
+
+.schedule-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.schedule-route {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+}
+
+.schedule-day {
+    font-size: 14px;
+    color: #666;
+    background-color: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.schedule-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.schedule-time, .schedule-frequency {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .app-container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .route-item {
+        padding: 10px 15px;
+    }
+    
+    .route-name {
+        font-size: 14px;
+    }
+}
